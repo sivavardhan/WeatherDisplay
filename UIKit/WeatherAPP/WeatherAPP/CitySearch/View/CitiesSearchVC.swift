@@ -10,13 +10,13 @@ import Combine
 
 class CitiesSearchVC: UIViewController {
 
-    private var searchbar = UISearchBar() // SearchBar Creation
-    private var resultTableView = UITableView() // Creating TableView
+    private(set) public var searchbar = UISearchBar() // SearchBar Creation
+    private (set) public var resultTableView = UITableView() // Creating TableView
     var viewModel:SearchCityViewModel? // Creating View Model Object
     private var cancellable = Set<AnyCancellable>() // A set to store Combine's AnyCancellable instances, ensuring subscriptions are retained and can be cancelled when no longer needed.
     
     var onCitySelected: (() -> Void)?
-    private let loadingIndicator = UIActivityIndicatorView(style: .large) // Craeting loading Indicator to show while fetching weather data
+    let loadingIndicator = UIActivityIndicatorView(style: .large) // Craeting loading Indicator to show while fetching weather data
     override func viewDidLoad() {
         super.viewDidLoad()
 

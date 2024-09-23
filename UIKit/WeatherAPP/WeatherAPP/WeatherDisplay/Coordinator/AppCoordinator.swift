@@ -22,7 +22,8 @@ class AppCoordinator:Coordinator
     
     func showWeatherScreen(){
         
-        let weatherVM = WeatherViewModel()
+        let weatherVM = WeatherViewModel(apiClient: WeatherAPIClient())
+        
         let weatherVC = WeatherViewController()
         weatherVC.viewModel = weatherVM
         weatherVC.onCitySearchTapped = { [weak self] in
